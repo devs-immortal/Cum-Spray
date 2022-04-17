@@ -1,5 +1,6 @@
 {
   "entity.wandering_trader.ejaculate": {
+    "subtitle": "subtitles.entity.wandering_trader.ejaculate",
     "sounds": [
       "cumspray:mob/wandering_trader/ejaculate1",
       "cumspray:mob/wandering_trader/ejaculate2",
