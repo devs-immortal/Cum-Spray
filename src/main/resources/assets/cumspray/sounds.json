@@ -1,0 +1,11 @@
+{
+  "entity.wandering_trader.ejaculate": {
+    "sounds": [
+      "cumspray:mob/wandering_trader/ejaculate1",
+      "cumspray:mob/wandering_trader/ejaculate2",
+      "cumspray:mob/wandering_trader/ejaculate3",
+      "cumspray:mob/wandering_trader/ejaculate4",
+      "cumspray:mob/wandering_trader/ejaculate5"
+    ]
+  }
+}
