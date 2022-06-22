@@ -14,12 +14,12 @@ public final class Util {
 
             return style.withColor(switch ((time % 1536) / 256) {
                 case 0 -> rgb(255, rem, 0);
-                case 1 -> rgb(255 - rem, 255, 0);
-                case 2 -> rgb(0, 255, rem);
-                case 3 -> rgb(0, 255 - rem, 255);
-                case 4 -> rgb(rem, 0, 255);
-                case 5 -> rgb(255, 0, 255 - rem);
-                default -> throw new AssertionError();
+                case 1, -5 -> rgb(255 - rem, 255, 0);
+                case 2, -4 -> rgb(0, 255, rem);
+                case 3, -3 -> rgb(0, 255 - rem, 255);
+                case 4, -2 -> rgb(rem, 0, 255);
+                case 5, -1 -> rgb(255, 0, 255 - rem);
+                default -> throw new IllegalStateException("Unexpected value: " + (time % 1536) / 256);
             });
         });
     }
