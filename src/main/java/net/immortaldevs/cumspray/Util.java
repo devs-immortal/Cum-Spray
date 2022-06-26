@@ -19,7 +19,7 @@ public final class Util {
                 case 3, -3 -> rgb(0, 255 - rem, 255);
                 case 4, -2 -> rgb(rem, 0, 255);
                 case 5, -1 -> rgb(255, 0, 255 - rem);
-                default -> throw new IllegalStateException("Unexpected value: " + (time % 1536) / 256);
+                default -> throw new AssertionError();
             });
         });
     }
