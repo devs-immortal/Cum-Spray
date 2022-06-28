@@ -3,12 +3,13 @@ package net.immortaldevs.cumspray;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.MutableText;
 import org.jetbrains.annotations.Nullable;
+import net.minecraft.text.Text;
 
 public final class Util {
     public static MutableText rainbow(MutableText text, @Nullable NbtCompound nbt) {
         if (nbt == null || !nbt.getBoolean("cum_coated")) return text;
 
-        return text.styled(style -> {
+        return Text.translatable("cum.item.prefix").append(" ").append(text.getString()).styled(style -> {
             int time = (int) System.currentTimeMillis();
             int rem = time & 0xff;
 
@@ -19,7 +20,7 @@ public final class Util {
                 case 3, -3 -> rgb(0, 255 - rem, 255);
                 case 4, -2 -> rgb(rem, 0, 255);
                 case 5, -1 -> rgb(255, 0, 255 - rem);
-                default -> throw new AssertionError();
+                default -> throw new IllegalStateException("Unexpected value: " + (time % 1536) / 256);
             });
         });
     }

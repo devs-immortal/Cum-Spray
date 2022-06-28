@@ -10,10 +10,10 @@ public final class CumSprayRenderLayers extends RenderLayer {
             VertexFormats.POSITION_TEXTURE,
             VertexFormat.DrawMode.QUADS,
             256,
-            RenderLayer.MultiPhaseParameters.builder()
+            MultiPhaseParameters.builder()
                     .shader(ENTITY_GLINT_SHADER)
-                    .texture(new RenderPhase.Texture(
-                            new Identifier("cumspray", "textures/misc/cum_coating.png"),
+                    .texture(new Texture(
+                            new Identifier("cum_spray", "textures/misc/cum_coating.png"),
                             false,
                             false))
                     .writeMaskState(COLOR_MASK)
@@ -23,6 +23,26 @@ public final class CumSprayRenderLayers extends RenderLayer {
                     .target(ITEM_TARGET)
                     .texturing(new Texturing("cum_coating",
                             () -> RenderSystem.setTextureMatrix(Matrix4f.scale(8f, 8f, 8f)),
+                            RenderSystem::resetTextureMatrix))
+                    .build(false));
+
+    public static final RenderLayer ENTITY_CUM_COATING = RenderLayer.of("entity_cum_coating",
+            VertexFormats.POSITION_TEXTURE,
+            VertexFormat.DrawMode.QUADS,
+            256,
+            MultiPhaseParameters.builder()
+                    .shader(ENTITY_GLINT_SHADER)
+                    .texture(new Texture(
+                            new Identifier("cum_spray", "textures/misc/cum_coating.png"),
+                            false,
+                            false))
+                    .writeMaskState(COLOR_MASK)
+                    .cull(DISABLE_CULLING)
+                    .depthTest(EQUAL_DEPTH_TEST)
+                    .transparency(GLINT_TRANSPARENCY)
+                    .target(ITEM_TARGET)
+                    .texturing(new Texturing("cum_coating",
+                            () -> RenderSystem.setTextureMatrix(Matrix4f.scale(1f, 1f, 1f)),
                             RenderSystem::resetTextureMatrix))
                     .build(false));
 

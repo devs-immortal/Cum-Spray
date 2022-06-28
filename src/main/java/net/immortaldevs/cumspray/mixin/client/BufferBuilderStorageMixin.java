@@ -22,5 +22,6 @@ public abstract class BufferBuilderStorageMixin {
             remap = false)
     private void method_2999(Object2ObjectLinkedOpenHashMap<RenderLayer, BufferBuilder> map, CallbackInfo ci) {
         assignBufferBuilder(map, CumSprayRenderLayers.CUM_COATING);
+        assignBufferBuilder(map, CumSprayRenderLayers.ENTITY_CUM_COATING);
     }
 }
